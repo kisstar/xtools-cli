@@ -1,0 +1,23 @@
+{
+  "name": "xtools-cli",
+  "version": "1.0.0",
+  "description": "Multifunctional R & D tools.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kisstar/xtools-cli.git"
+  },
+  "keywords": [
+    "xtools",
+    "cli"
+  ],
+  "author": "kisstar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kisstar/xtools-cli/issues"
+  },
+  "homepage": "https://github.com/kisstar/xtools-cli#readme"
+}
