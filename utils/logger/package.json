@@ -1,0 +1,21 @@
+{
+  "name": "@xtools-cli/logger",
+  "version": "1.0.0",
+  "description": "Xtools internal log printing tool.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kisstar/xtools-cli.git",
+    "directory": "utils/logger"
+  },
+  "keywords": [
+    "xtools",
+    "logger"
+  ],
+  "author": "kisstar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kisstar/xtools-cli/issues"
+  },
+  "homepage": "https://github.com/kisstar/xtools-cli#readme"
+}
