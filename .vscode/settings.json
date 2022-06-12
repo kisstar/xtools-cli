@@ -1,0 +1,7 @@
+// See: https://code.visualstudio.com/docs/getstarted/settings
+
+{
+  "files.eol": "\n",
+  "files.insertFinalNewline": true,
+  "files.trimTrailingWhitespace": true
+}
