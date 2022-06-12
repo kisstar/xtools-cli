@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/kisstar/xtools-cli/issues"
   },
-  "homepage": "https://github.com/kisstar/xtools-cli#readme"
+  "homepage": "https://github.com/kisstar/xtools-cli#readme",
+  "dependencies": {
+    "npmlog": "^6.0.2"
+  }
 }
