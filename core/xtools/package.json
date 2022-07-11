@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Multifunctional R & D tools.",
   "bin": {
-    "xtools": "lib/cli.js"
+    "xtools": "bin/cli.js"
   },
   "repository": {
     "type": "git",
@@ -21,6 +21,9 @@
   "homepage": "https://github.com/kisstar/xtools-cli#readme",
   "dependencies": {
     "@xtools-cli/logger": "workspace:^1.0.0",
-    "import-local": "^3.1.0"
+    "chalk": "4.1.2",
+    "commander": "^9.3.0",
+    "import-local": "^3.1.0",
+    "leven": "3.1.0"
   }
 }
