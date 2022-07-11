@@ -1,7 +1,7 @@
-const logger = require('npmlog');
+const log = require('npmlog');
 
-// Set up new level
-[
+const logger = {};
+const levels = [
   {
     name: 'debug',
     level: 1500,
@@ -26,21 +26,38 @@ const logger = require('npmlog');
     style: { fg: 'black', bg: 'red' },
     disp: 'ERROR',
   },
-].forEach(({ name, level, style, disp }) => {
-  logger.addLevel(name, level, style, ` ${disp} `);
-});
+];
 
-// Wrap prefix
-[('debug', 'info', 'warn', 'error')].forEach((method) => {
-  const originMethod = logger[method];
+levels.forEach(({ name, level, style, disp }) => {
+  // Set up new level
+  log.addLevel(name, level, style, ` ${disp} `);
 
-  logger[method] = function (prefix, ...args) {
-    originMethod.call(logger, `[${prefix}]`, ...args);
+  const originMethod = log[name];
+  // Wrap prefix
+  logger[name] = function (prefix, ...args) {
+    originMethod.call(log, `[${prefix}]`, ...args);
   };
 });
 
+/**
+ * Print blank lines
+ * @returns {void}
+ */
+logger.blankLine = function () {
+  console.log();
+};
+
+/**
+ * Set level
+ * @returns {void}
+ */
 logger.setLevel = function (level) {
-  logger.level = level;
+  const allLevels = ['silly', ...levels, 'silent'];
+  const isValidLevel = allLevels.some((levelInfo) => levelInfo.name === level);
+
+  if (isValidLevel) {
+    log.level = level;
+  }
 };
 
 module.exports = logger;
