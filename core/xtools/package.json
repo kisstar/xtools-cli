@@ -2,8 +2,15 @@
   "name": "@xtools-cli/xtools",
   "version": "1.0.0",
   "description": "Multifunctional R & D tools.",
+  "type": "module",
+  "module": "dist/cli.es.js",
+  "main": "dist/cli.es.js",
   "bin": {
     "xtools": "bin/cli.js"
+  },
+  "scripts": {
+    "dev": "rollup -cw",
+    "build": "rollup -c"
   },
   "repository": {
     "type": "git",
@@ -21,9 +28,15 @@
   "homepage": "https://github.com/kisstar/xtools-cli#readme",
   "dependencies": {
     "@xtools-cli/logger": "workspace:^1.0.0",
-    "chalk": "4.1.2",
+    "chalk": "^5.0.1",
     "commander": "^9.3.0",
     "import-local": "^3.1.0",
-    "leven": "3.1.0"
+    "leven": "^4.0.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^22.0.1",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^13.3.0",
+    "rollup": "^2.76.0"
   }
 }

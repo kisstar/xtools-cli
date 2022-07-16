@@ -1,11 +1,5 @@
-#!/usr/bin/env node
+#! /usr/bin/env node
 
-const importLocal = require('import-local');
-const logger = require('@xtools-cli/logger');
+'use strict';
 
-if (importLocal(__filename)) {
-  logger.debug('cli', 'using local version of xtools');
-} else {
-  logger.debug('cli', 'using global version of xtools');
-  require('../lib')();
-}
+import '../dist/cli.es.js';
