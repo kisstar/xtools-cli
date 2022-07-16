@@ -53,7 +53,9 @@ logger.blankLine = function () {
  */
 logger.setLevel = function (level) {
   const allLevels = ['silly', ...levels, 'silent'];
-  const isValidLevel = allLevels.some((levelInfo) => levelInfo.name === level);
+  const isValidLevel = allLevels.some(
+    (levelOrLevelInfo) => level === levelOrLevelInfo || level === levelOrLevelInfo.name
+  );
 
   if (isValidLevel) {
     log.level = level;
