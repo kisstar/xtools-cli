@@ -42,9 +42,9 @@ function registerCommands() {
  * @param {string} unknownCommand current command
  * @returns {void}
  */
-function suggestCommands(program, unknownCommand) {
-  const availableCommands = program.commands.map((cmd) => cmd._name);
-  let suggestion;
+function suggestCommands(program: Command, unknownCommand: string) {
+  const availableCommands = program.commands.map((cmd) => cmd.name());
+  let suggestion = '';
 
   availableCommands.forEach((cmd) => {
     const isBestMatch = leven(cmd, unknownCommand) < leven(suggestion || '', unknownCommand);

@@ -2,8 +2,7 @@
   "name": "xtools-cli",
   "private": true,
   "description": "Multifunctional R & D tools.",
-  "scripts": {
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kisstar/xtools-cli.git"
@@ -18,5 +17,10 @@
     "url": "https://github.com/kisstar/xtools-cli/issues"
   },
   "homepage": "https://github.com/kisstar/xtools-cli#readme",
-  "packageManager": "pnpm@7.1.9"
+  "packageManager": "pnpm@7.1.9",
+  "devDependencies": {
+    "@types/node": "^18.0.5",
+    "tslib": "^2.4.0",
+    "typescript": "^4.7.4"
+  }
 }

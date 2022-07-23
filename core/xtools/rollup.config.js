@@ -2,6 +2,7 @@ import path from 'path';
 import nodeResolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json';
+import typescript from '@rollup/plugin-typescript';
 import pkg from './package.json';
 
 const isProduction = true;
@@ -28,6 +29,7 @@ const sharedOptions = {
       preferBuiltins: true,
       exportConditions: ['node'],
     }),
+    typescript(),
     commonjs(),
     json(),
   ],
@@ -43,15 +45,13 @@ function getExternals(format) {
     return allExternals;
   }
 
-  const cjsExternals = allExternals.filter((m) => !mustESMModules.includes(m));
-
-  return cjsExternals;
+  return allExternals.filter((m) => !mustESMModules.includes(m));
 }
 
 export default [
   format !== 'esm' && {
     input: {
-      cli: 'lib/index.js',
+      cli: 'lib/index.ts',
     },
     output: {
       ...sharedOptions.output,
@@ -73,7 +73,7 @@ export default [
   },
   format !== 'cjs' && {
     input: {
-      cli: 'lib/index.js',
+      cli: 'lib/index.ts',
     },
     output: {
       ...sharedOptions.output,
