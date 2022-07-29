@@ -1,7 +1,7 @@
-const log = require('npmlog');
+import log from 'npmlog';
+import type { LevelInfo, Level, Logger } from '../types';
 
-const logger = {};
-const levels = [
+const levels: LevelInfo[] = [
   {
     name: 'debug',
     level: 1500,
@@ -27,6 +27,32 @@ const levels = [
     disp: 'ERROR',
   },
 ];
+const allLevels = ['silly', ...levels.map((levelInfo) => levelInfo.name), 'silent'];
+const logger: Logger = {
+  /**
+   * Print blank lines
+   * @returns {void}
+   */
+  blankLine: function () {
+    console.log();
+  },
+
+  /**
+   * Set level
+   * @returns {void}
+   */
+  setLevel: function (level: Level) {
+    const isValidLevel = allLevels.some((levelOrLevelInfo) => level === levelOrLevelInfo);
+
+    if (isValidLevel) {
+      log.level = level;
+    }
+  },
+  debug: noop,
+  info: noop,
+  warn: noop,
+  error: noop,
+};
 
 levels.forEach(({ name, level, style, disp }) => {
   // Set up new level
@@ -39,27 +65,6 @@ levels.forEach(({ name, level, style, disp }) => {
   };
 });
 
-/**
- * Print blank lines
- * @returns {void}
- */
-logger.blankLine = function () {
-  console.log();
-};
+function noop() {}
 
-/**
- * Set level
- * @returns {void}
- */
-logger.setLevel = function (level) {
-  const allLevels = ['silly', ...levels, 'silent'];
-  const isValidLevel = allLevels.some(
-    (levelOrLevelInfo) => level === levelOrLevelInfo || level === levelOrLevelInfo.name
-  );
-
-  if (isValidLevel) {
-    log.level = level;
-  }
-};
-
-module.exports = logger;
+export default logger;

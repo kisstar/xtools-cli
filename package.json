@@ -2,7 +2,10 @@
   "name": "xtools-cli",
   "private": true,
   "description": "Multifunctional R & D tools.",
-  "scripts": {},
+  "scripts": {
+    "dev": "pnpm -r --parallel --filter=./{core,utils}/* run dev",
+    "build": "pnpm -r --filter=./{core,utils}/* run build"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kisstar/xtools-cli.git"
@@ -21,6 +24,7 @@
   "devDependencies": {
     "@types/node": "^18.0.5",
     "tslib": "^2.4.0",
-    "typescript": "^4.7.4"
+    "typescript": "^4.7.4",
+    "unbuild": "^0.7.6"
   }
 }
