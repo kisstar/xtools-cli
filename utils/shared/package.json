@@ -1,0 +1,35 @@
+{
+  "name": "@xtools-cli/shared",
+  "version": "1.0.0",
+  "description": "Utility functions and constants shared within Xtools.",
+  "type": "module",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "main": "./dist/index.cjs",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "scripts": {
+    "dev": "unbuild --stub",
+    "build": "unbuild"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kisstar/xtools-cli.git",
+    "directory": "utils/shared"
+  },
+  "keywords": [
+    "xtools",
+    "shared"
+  ],
+  "author": "kisstar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kisstar/xtools-cli/issues"
+  },
+  "homepage": "https://github.com/kisstar/xtools-cli#readme"
+}
