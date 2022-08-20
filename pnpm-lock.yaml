@@ -42,8 +42,10 @@ importers:
   utils/logger:
     specifiers:
       '@types/npmlog': ^4.1.4
+      '@xtools-cli/shared': workspace:^1.0.0
       npmlog: ^6.0.2
     dependencies:
+      '@xtools-cli/shared': link:../shared
       npmlog: 6.0.2
     devDependencies:
       '@types/npmlog': 4.1.4

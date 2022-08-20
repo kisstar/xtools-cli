@@ -1,4 +1,5 @@
 import log from 'npmlog';
+import { NOOP } from '@xtools-cli/shared';
 import type { LevelInfo, Level, Logger } from '../types';
 
 const levels: LevelInfo[] = [
@@ -48,10 +49,10 @@ const logger: Logger = {
       log.level = level;
     }
   },
-  debug: noop,
-  info: noop,
-  warn: noop,
-  error: noop,
+  debug: NOOP,
+  info: NOOP,
+  warn: NOOP,
+  error: NOOP,
 };
 
 levels.forEach(({ name, level, style, disp }) => {
@@ -64,7 +65,5 @@ levels.forEach(({ name, level, style, disp }) => {
     originMethod.call(log, `[${prefix}]`, ...args);
   };
 });
-
-function noop() {}
 
 export default logger;

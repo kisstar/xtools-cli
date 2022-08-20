@@ -33,6 +33,7 @@
   },
   "homepage": "https://github.com/kisstar/xtools-cli#readme",
   "dependencies": {
+    "@xtools-cli/shared": "workspace:^1.0.0",
     "npmlog": "^6.0.2"
   },
   "devDependencies": {
