@@ -3,8 +3,8 @@
   "private": true,
   "description": "Multifunctional R & D tools.",
   "scripts": {
-    "dev": "pnpm -r --parallel --filter=./{core,utils}/* run dev",
-    "build": "pnpm -r --filter=./{core,utils}/* run build"
+    "dev": "pnpm -r --parallel --filter=./{core,commands,utils}/* run dev",
+    "build": "pnpm -r --filter=./{core,commands,utils}/* run build"
   },
   "repository": {
     "type": "git",
