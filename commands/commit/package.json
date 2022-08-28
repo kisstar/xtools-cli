@@ -33,5 +33,15 @@
   "bugs": {
     "url": "https://github.com/kisstar/xtools-cli/issues"
   },
-  "homepage": "https://github.com/kisstar/xtools-cli#readme"
+  "homepage": "https://github.com/kisstar/xtools-cli#readme",
+  "dependencies": {
+    "@commitlint/cz-commitlint": "^17.1.1",
+    "@commitlint/load": "^17.1.1",
+    "@xtools-cli/shared": "workspace:^1.0.0",
+    "commitizen": "^4.2.5"
+  },
+  "devDependencies": {
+    "@commitlint/types": "^17.0.0",
+    "@types/inquirer": "^9.0.1"
+  }
 }
