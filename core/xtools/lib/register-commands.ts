@@ -18,7 +18,7 @@ function registerCommands() {
     .version(pkg.version)
     .usage('<command> [options]')
     .option('-d, --debug', 'whether to turn on debugging mode', false);
-  COMMANDS.forEach(({ command, options, description = '', action }) => {
+  COMMANDS.forEach(({ command, options = [], description = '', action }) => {
     const childCommand = program.command(command).description(description);
 
     options.forEach((option) => childCommand.option(...option));
