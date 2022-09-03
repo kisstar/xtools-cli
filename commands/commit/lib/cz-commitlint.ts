@@ -1,5 +1,5 @@
 import load from '@commitlint/load';
-import process from '@commitlint/cz-commitlint/lib/Process';
+import { default as czCcommitlintProcess } from '@commitlint/cz-commitlint/lib/Process';
 import { isEmpty } from '@xtools-cli/shared';
 import commitlintConf from './commitlint.config';
 import type Inquirer from 'inquirer';
@@ -18,6 +18,11 @@ export function prompter(inquirer: typeof Inquirer, commit: Commit): void {
     const retRules = isEmpty(rules) ? defaultRules : rules;
     const retPrompt = isEmpty(prompt) ? defaultPrompt : prompt;
 
-    process(retRules, retPrompt, inquirer).then(commit);
+    czCcommitlintProcess(retRules, retPrompt, inquirer).then((template) => {
+      // Get cli args
+      const rawGitArgs = process.argv.slice(3);
+
+      commit(template, { args: rawGitArgs });
+    });
   });
 }
