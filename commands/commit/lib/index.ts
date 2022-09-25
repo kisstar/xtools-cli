@@ -1,12 +1,12 @@
-import path from 'path';
 import { bootstrap } from 'commitizen/dist/cli/git-cz';
+import { commitizenCliPath, commitizenConfigPath } from './config';
 
 class CommitCommand {
   exec() {
     bootstrap({
-      cliPath: path.join(__dirname, '../node_modules/commitizen'),
+      cliPath: commitizenCliPath,
       config: {
-        path: path.join(__dirname, '../dist/cz-commitlint.cjs'),
+        path: commitizenConfigPath,
       },
     });
   }
