@@ -35,6 +35,7 @@
   },
   "homepage": "https://github.com/kisstar/xtools-cli#readme",
   "dependencies": {
+    "@commitlint/config-conventional": "^17.1.0",
     "@commitlint/cz-commitlint": "^17.1.1",
     "@commitlint/load": "^17.1.1",
     "@xtools-cli/shared": "workspace:^1.0.0",
