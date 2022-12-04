@@ -21,12 +21,14 @@ importers:
       '@commitlint/load': ^17.1.1
       '@commitlint/types': ^17.0.0
       '@types/inquirer': ^9.0.1
+      '@xtools-cli/logger': workspace:^1.0.0
       '@xtools-cli/shared': workspace:^1.0.0
       commitizen: ^4.2.5
     dependencies:
       '@commitlint/config-conventional': 17.1.0
       '@commitlint/cz-commitlint': 17.1.2_commitizen@4.2.5
       '@commitlint/load': 17.1.2
+      '@xtools-cli/logger': link:../../utils/logger
       '@xtools-cli/shared': link:../../utils/shared
       commitizen: 4.2.5
     devDependencies:
