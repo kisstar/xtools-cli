@@ -1,11 +1,31 @@
-import { exec } from './promisify';
+import { execAsync } from './promisify';
+
+/**
+ * Asynchronously determine that the specified directory is in the Git repository
+ */
+export const isInGitRepo = async (repoPath: string): Promise<boolean> => {
+  try {
+    const { stdout } = await execAsync('git rev-parse --git-dir', {
+      maxBuffer: Infinity,
+      cwd: repoPath,
+    });
+
+    return stdout.trim().length !== 0;
+  } catch (error) {
+    if (/(Not a git repository|Kein Git-Repository)/i.test(String(error))) {
+      return false;
+    }
+
+    throw new Error(error);
+  }
+};
 
 /**
  * Asynchronously determine whether the specified directory is a Git repository
  */
-export const isGitRepo = async (repoPath: string) => {
+export const isGitRepo = async (repoPath: string): Promise<boolean> => {
   try {
-    const { stdout } = await exec('git rev-parse --git-dir', {
+    const { stdout } = await execAsync('git rev-parse --git-dir', {
       maxBuffer: Infinity,
       cwd: repoPath,
     });
@@ -21,17 +41,29 @@ export const isGitRepo = async (repoPath: string) => {
 };
 
 /**
+ * Get Git warehouse address asynchronously
+ */
+export const getGitRepoPath = async (repoPath: string) => {
+  const { stdout } = await execAsync('git rev-parse --git-dir', {
+    maxBuffer: Infinity,
+    cwd: repoPath,
+  });
+
+  if (/^\.(git)?$/.test(stdout.trim())) {
+    return repoPath;
+  }
+
+  return stdout.trim().replace('/.git', '');
+};
+
+/**
  * Asynchrounously determines if the staging area is clean
  */
-export const isClean = async (repoPath: string) => {
-  try {
-    const { stdout } = await exec('git diff --cached --no-ext-diff --name-only', {
-      maxBuffer: Infinity,
-      cwd: repoPath,
-    });
+export const isClean = async (repoPath: string): Promise<boolean> => {
+  const { stdout } = await execAsync('git diff --cached --no-ext-diff --name-only', {
+    maxBuffer: Infinity,
+    cwd: repoPath,
+  });
 
-    return stdout.trim().length === 0;
-  } catch (error) {
-    throw new Error(error);
-  }
+  return stdout.trim().length === 0;
 };
