@@ -11,6 +11,11 @@ export const isMap = (val: unknown): val is Map<any, any> => toTypeString(val) =
 
 export const isSet = (val: unknown): val is Set<any> => toTypeString(val) === '[object Set]';
 
+/**
+ * Check whether value is an empty object
+ * @param target Objects checked
+ * @returns {boolean}
+ */
 export const isEmpty = (target: unknown) => {
   if (!target) {
     return true;
@@ -20,12 +25,12 @@ export const isEmpty = (target: unknown) => {
     return !target.length;
   }
 
-  if (isObject(target)) {
-    return !Object.keys(target).length;
-  }
-
   if (isMap(target) || isSet(target)) {
     return !target.size;
+  }
+
+  if (isObject(target)) {
+    return !Object.keys(target).length;
   }
 
   return true;
