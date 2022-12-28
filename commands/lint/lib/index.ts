@@ -1,7 +1,7 @@
-import sgf from 'staged-git-files';
 import logger from '@xtools-cli/logger';
-import { isGitRepo } from '@xtools-cli/shared';
+import { isClean, isGitRepo } from '@xtools-cli/shared';
 import { cwd } from './config';
+import { esLintHandler } from './handlers';
 import ERROR_MESSAGE from './message';
 
 class LintCommand {
@@ -12,15 +12,15 @@ class LintCommand {
         return;
       }
 
-      const list = await sgf();
-
-      if (!list.length) {
+      if (await isClean(cwd)) {
         logger.error('lint', ERROR_MESSAGE.NO_FILES_STAGING);
         return;
       }
 
-      console.log(list);
-    } catch (err) {}
+      esLintHandler.call(this);
+    } catch (err) {
+      logger.error('lint', ERROR_MESSAGE.DEFAULT);
+    }
   }
 }
 

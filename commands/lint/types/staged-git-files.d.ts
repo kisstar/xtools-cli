@@ -16,7 +16,7 @@ declare module 'staged-git-files' {
   }
 
   interface SGF {
-    (): FileInfo[];
+    (): Promise<FileInfo[]>;
   }
 
   const sgf: SGF;
