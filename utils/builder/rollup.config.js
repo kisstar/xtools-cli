@@ -45,13 +45,13 @@ function getExternals(format) {
     return allExternals;
   }
 
-  return allExternals.filter((m) => !mustESMModules.includes(m));
+  return allExternals.filter(m => !mustESMModules.includes(m));
 }
 
 export default [
   format !== 'esm' && {
     input: {
-      cli: 'lib/index.ts',
+      lib: 'lib/index.ts',
     },
     output: {
       ...sharedOptions.output,
@@ -73,7 +73,7 @@ export default [
   },
   format !== 'cjs' && {
     input: {
-      cli: 'lib/index.ts',
+      lib: 'lib/index.ts',
     },
     output: {
       ...sharedOptions.output,

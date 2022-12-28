@@ -1,6 +1,5 @@
 import { Command } from 'commander';
-import leven from 'leven';
-import chalk from 'chalk';
+import { chalk, leven } from '@xtools-cli/builder';
 import logger from '@xtools-cli/logger';
 import { COMMANDS } from './config';
 import exec from './exec';
@@ -21,7 +20,7 @@ function registerCommands() {
   COMMANDS.forEach(({ command, options = [], description = '', action }) => {
     const childCommand = program.command(command).description(description);
 
-    options.forEach((option) => childCommand.option(...option));
+    options.forEach(option => childCommand.option(...option));
     childCommand.action(action || exec);
   });
   program.on('command:*', ([cmd]) => {
@@ -46,10 +45,10 @@ function registerCommands() {
  * @returns {void}
  */
 function suggestCommands(program: Command, unknownCommand: string) {
-  const availableCommands = program.commands.map((cmd) => cmd.name());
+  const availableCommands = program.commands.map(cmd => cmd.name());
   let suggestion = '';
 
-  availableCommands.forEach((cmd) => {
+  availableCommands.forEach(cmd => {
     const isBestMatch = leven(cmd, unknownCommand) < leven(suggestion || '', unknownCommand);
     if (leven(cmd, unknownCommand) < 3 && isBestMatch) {
       suggestion = cmd;

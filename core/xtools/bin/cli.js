@@ -2,4 +2,4 @@
 
 'use strict';
 
-import '../dist/cli.es.js';
+import '../dist/index.mjs';
