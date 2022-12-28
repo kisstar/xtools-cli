@@ -43,7 +43,6 @@
     "commitizen": "^4.2.5"
   },
   "devDependencies": {
-    "@commitlint/types": "^17.0.0",
-    "@types/inquirer": "^9.0.1"
+    "@commitlint/types": "^17.0.0"
   }
 }
