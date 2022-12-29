@@ -6,7 +6,6 @@ import typescript from '@rollup/plugin-typescript';
 import pkg from './package.json';
 
 const isProduction = true;
-const format = isProduction ? 'all' : 'esm'; // esm, cjs, all
 const mustESMModules = ['chalk', 'leven']; // ESM packages
 const sharedOptions = {
   output: {
@@ -35,7 +34,7 @@ const sharedOptions = {
   ],
 };
 
-function getExternals(format) {
+function getExternals(format = '') {
   const allExternals = [
     ...Object.keys(pkg.dependencies),
     ...(isProduction ? [] : Object.keys(pkg.devDependencies)),
@@ -45,11 +44,11 @@ function getExternals(format) {
     return allExternals;
   }
 
-  return allExternals.filter(m => !mustESMModules.includes(m));
+  return allExternals.filter((m) => !mustESMModules.includes(m));
 }
 
 export default [
-  format !== 'esm' && {
+  {
     input: {
       lib: 'lib/index.ts',
     },
@@ -71,7 +70,7 @@ export default [
     },
     plugins: [...sharedOptions.plugins],
   },
-  format !== 'cjs' && {
+  {
     input: {
       lib: 'lib/index.ts',
     },
