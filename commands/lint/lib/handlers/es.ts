@@ -6,6 +6,7 @@ import type LintCommand from '..';
 import { cwd, eslintConfig } from '../config';
 
 export async function esLintHandler(this: LintCommand) {
+  const { fix } = this.options;
   const list = await sgf();
   const files = list
     .filter(({ filename }) => /\.(ts|js)$/.test(filename))
@@ -19,6 +20,15 @@ export async function esLintHandler(this: LintCommand) {
   const eslintBin = join(dirname(require.resolve('eslint/package.json')), 'bin/eslint');
   const args = [eslintBin, '-c', eslintConfig];
 
+  if (fix) {
+    args.push('--fix');
+  }
+
   args.push(...files);
-  await runCmd('node', args);
+
+  try {
+    await runCmd('node', args);
+  } catch (error) {
+    // Do nothing
+  }
 }

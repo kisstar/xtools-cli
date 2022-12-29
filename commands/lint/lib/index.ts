@@ -5,7 +5,11 @@ import { esLintHandler } from './handlers';
 import ERROR_MESSAGE from './message';
 
 class LintCommand {
-  async exec() {
+  options: CommandOptions = {};
+
+  async exec(options: CommandOptions) {
+    Object.assign(this.options, options);
+
     try {
       if (!(await isGitRepo(cwd))) {
         logger.error('lint', ERROR_MESSAGE.IS_NOT_GIT_REPO);
@@ -25,3 +29,7 @@ class LintCommand {
 }
 
 export default LintCommand;
+
+interface CommandOptions {
+  fix?: boolean;
+}

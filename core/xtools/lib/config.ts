@@ -17,5 +17,6 @@ export const COMMANDS: CommandInfo[] = [
     command: 'lint',
     description: 'verify the code with the specified rules',
     action: new LintCommand().exec,
+    options: [['--fix', 'automatically fix problems']],
   },
 ];
