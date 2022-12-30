@@ -35,48 +35,14 @@ importers:
 
   commands/lint:
     specifiers:
-      '@rushstack/eslint-patch': ^1.2.0
-      '@typescript-eslint/eslint-plugin': ^5.13.0
-      '@typescript-eslint/parser': ^5.0.0
-      '@vue/eslint-config-airbnb': ^7.0.0
-      '@vue/eslint-config-airbnb-with-typescript': ^7.0.0
+      '@xtools-cli/eslint-config': workspace:^1.0.0
       '@xtools-cli/logger': workspace:^1.0.0
       '@xtools-cli/shared': workspace:^1.0.0
-      eslint: ^7.32.0 || ^8.2.0
-      eslint-config-airbnb: ^19.0.4
-      eslint-config-airbnb-base: ^15.0.0
-      eslint-config-airbnb-typescript: ^17.0.0
-      eslint-config-prettier: ^8.5.0
-      eslint-plugin-eslint-comments: ^3.2.0
-      eslint-plugin-import: ^2.25.3
-      eslint-plugin-jsx-a11y: ^6.5.1
-      eslint-plugin-prettier: ^4.2.1
-      eslint-plugin-react: ^7.28.0
-      eslint-plugin-react-hooks: ^4.3.0
-      eslint-plugin-vue: ^9.8.0
-      prettier: ^2.8.1
       staged-git-files: ^1.3.0
     dependencies:
-      '@rushstack/eslint-patch': 1.2.0
-      '@typescript-eslint/eslint-plugin': 5.47.1_smw3o7qjeokkcohbvp7rylsoqq
-      '@typescript-eslint/parser': 5.47.1_eslint@8.30.0
-      '@vue/eslint-config-airbnb': 7.0.0_54mcxsp5eddmu7je43xnz3ybee
-      '@vue/eslint-config-airbnb-with-typescript': 7.0.0_hbe27o6u6hnllmcf33yfjkusq4
+      '@xtools-cli/eslint-config': link:../../plugins/eslint-config
       '@xtools-cli/logger': link:../../utils/logger
       '@xtools-cli/shared': link:../../utils/shared
-      eslint: 8.30.0
-      eslint-config-airbnb: 19.0.4_j3uyvjk2vb2gkfzhvqukeu5rlq
-      eslint-config-airbnb-base: 15.0.0_2lbwmhbr7bncddqbzzpg77o75m
-      eslint-config-airbnb-typescript: 17.0.0_qipeoi3mvzxgzndpeo4r6kwevy
-      eslint-config-prettier: 8.5.0_eslint@8.30.0
-      eslint-plugin-eslint-comments: 3.2.0_eslint@8.30.0
-      eslint-plugin-import: 2.26.0_smw3o7qjeokkcohbvp7rylsoqq
-      eslint-plugin-jsx-a11y: 6.6.1_eslint@8.30.0
-      eslint-plugin-prettier: 4.2.1_kl4pe43v5b43npmso5hoplpbyi
-      eslint-plugin-react: 7.31.11_eslint@8.30.0
-      eslint-plugin-react-hooks: 4.6.0_eslint@8.30.0
-      eslint-plugin-vue: 9.8.0_eslint@8.30.0
-      prettier: 2.8.1
       staged-git-files: 1.3.0
 
   core/xtools:
@@ -94,6 +60,51 @@ importers:
       '@xtools-cli/logger': link:../../utils/logger
       commander: 9.4.0
       import-local: 3.1.0
+
+  plugins/eslint-config:
+    specifiers:
+      '@rushstack/eslint-patch': ^1.2.0
+      '@types/eslint': ^8.4.10
+      '@typescript-eslint/eslint-plugin': ^5.13.0
+      '@typescript-eslint/parser': ^5.0.0
+      '@vue/eslint-config-airbnb': ^7.0.0
+      '@vue/eslint-config-airbnb-with-typescript': ^7.0.0
+      '@xtools-cli/shared': workspace:^1.0.0
+      eslint: ^7.32.0 || ^8.2.0
+      eslint-config-airbnb: ^19.0.4
+      eslint-config-airbnb-base: ^15.0.0
+      eslint-config-airbnb-typescript: ^17.0.0
+      eslint-config-prettier: ^8.5.0
+      eslint-plugin-eslint-comments: ^3.2.0
+      eslint-plugin-import: ^2.25.3
+      eslint-plugin-jsx-a11y: ^6.5.1
+      eslint-plugin-prettier: ^4.2.1
+      eslint-plugin-react: ^7.28.0
+      eslint-plugin-react-hooks: ^4.3.0
+      eslint-plugin-vue: ^9.8.0
+      prettier: ^2.8.1
+    dependencies:
+      '@rushstack/eslint-patch': 1.2.0
+      '@typescript-eslint/eslint-plugin': 5.47.1_smw3o7qjeokkcohbvp7rylsoqq
+      '@typescript-eslint/parser': 5.47.1_eslint@8.30.0
+      '@vue/eslint-config-airbnb': 7.0.0_54mcxsp5eddmu7je43xnz3ybee
+      '@vue/eslint-config-airbnb-with-typescript': 7.0.0_hbe27o6u6hnllmcf33yfjkusq4
+      '@xtools-cli/shared': link:../../utils/shared
+      eslint: 8.30.0
+      eslint-config-airbnb: 19.0.4_j3uyvjk2vb2gkfzhvqukeu5rlq
+      eslint-config-airbnb-base: 15.0.0_2lbwmhbr7bncddqbzzpg77o75m
+      eslint-config-airbnb-typescript: 17.0.0_qipeoi3mvzxgzndpeo4r6kwevy
+      eslint-config-prettier: 8.5.0_eslint@8.30.0
+      eslint-plugin-eslint-comments: 3.2.0_eslint@8.30.0
+      eslint-plugin-import: 2.26.0_smw3o7qjeokkcohbvp7rylsoqq
+      eslint-plugin-jsx-a11y: 6.6.1_eslint@8.30.0
+      eslint-plugin-prettier: 4.2.1_kl4pe43v5b43npmso5hoplpbyi
+      eslint-plugin-react: 7.31.11_eslint@8.30.0
+      eslint-plugin-react-hooks: 4.6.0_eslint@8.30.0
+      eslint-plugin-vue: 9.8.0_eslint@8.30.0
+      prettier: 2.8.1
+    devDependencies:
+      '@types/eslint': 8.4.10
 
   utils/builder:
     specifiers:
@@ -301,7 +312,7 @@ packages:
     resolution: {integrity: sha512-jr9lCZ4RbRQmCR28Q8U8Fu49zvFqLxTY9AMOUz+iyMohMoAgpEcVxY+wJNay99oXOpOcCTODkk70NDN2aaJEeg==}
     engines: {node: '>=6.9.0'}
     dependencies:
-      core-js-pure: 3.27.0
+      core-js-pure: 3.27.1
       regenerator-runtime: 0.13.11
     dev: false
 
@@ -681,6 +692,13 @@ packages:
     resolution: {integrity: sha512-yOlFc+7UtL/89t2ZhjPvvB/DeAr3r+Dq58IgzsFkOAvVC6NMJXmCGjbptdXdR9qsX7pKcTL+s87FtYREi2dEEQ==}
     dev: false
 
+  /@types/eslint/8.4.10:
+    resolution: {integrity: sha512-Sl/HOqN8NKPmhWo2VBEPm0nvHnu2LL3v9vKo8MEq0EtbJ4eVzGPl41VNPvn5E1i5poMk4/XD8UriLHpJvEP/Nw==}
+    dependencies:
+      '@types/estree': 1.0.0
+      '@types/json-schema': 7.0.11
+    dev: true
+
   /@types/estree/0.0.39:
     resolution: {integrity: sha512-EYNwp3bU+98cpU4lAWYYL7Zz+2gryWH1qbdDTidVd6hkiR6weksdbMadyXKXNPEkQFhXM+hVO9ZygomHXp+AIw==}
     dev: true
@@ -691,7 +709,6 @@ packages:
 
   /@types/json-schema/7.0.11:
     resolution: {integrity: sha512-wOuvG1SN4Us4rez+tylwwwCV1psiNVOkJeM3AUWUNWg/jDQY2+HE/444y5gc+jBmRqASOm2Oeh5c1axHobwRKQ==}
-    dev: false
 
   /@types/json5/0.0.29:
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==}
@@ -1303,8 +1320,8 @@ packages:
       safe-buffer: 5.1.2
     dev: true
 
-  /core-js-pure/3.27.0:
-    resolution: {integrity: sha512-fJml7FM6v1HI3Gkg5/Ifc/7Y2qXcJxaDwSROeZGAZfNykSTvUk94WT55TYzJ2lFHK0voSr/d4nOVChLuNCWNpA==}
+  /core-js-pure/3.27.1:
+    resolution: {integrity: sha512-BS2NHgwwUppfeoqOXqi08mUqS5FiZpuRuJJpKsaME7kJz0xxuk0xkhDdfMIlP/zLa80krBqss1LtD7f889heAw==}
     requiresBuild: true
     dev: false
 

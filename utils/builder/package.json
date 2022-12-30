@@ -14,7 +14,8 @@
     }
   },
   "scripts": {
-    "dev": "rollup -cw",
+    "start": "rollup -cw",
+    "dev": "rollup -c",
     "build": "rollup -c"
   },
   "repository": {
