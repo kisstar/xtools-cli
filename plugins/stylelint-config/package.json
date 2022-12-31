@@ -14,7 +14,8 @@
     }
   },
   "scripts": {
-    "dev": "unbuild --stub",
+    "start": "unbuild --stub",
+    "dev": "unbuild",
     "build": "unbuild"
   },
   "repository": {
@@ -31,5 +32,12 @@
   "bugs": {
     "url": "https://github.com/kisstar/xtools-cli/issues"
   },
-  "homepage": "https://github.com/kisstar/xtools-cli#readme"
+  "homepage": "https://github.com/kisstar/xtools-cli#readme",
+  "dependencies": {
+    "stylelint-config-css-modules": "^4.1.0",
+    "stylelint-config-prettier-scss": "^0.0.1",
+    "stylelint-config-rational-order": "^0.1.2",
+    "stylelint-config-standard-scss": "^6.1.0",
+    "stylelint-declaration-block-no-ignored-properties": "^2.6.0"
+  }
 }
