@@ -1,16 +1,16 @@
 import { dirname, join } from 'path';
 import { runCmd } from '@xtools-cli/shared';
-import { eslintConfig } from '../config';
+import { styleConfig } from '../config';
 import type LintCommand from '..';
 
-export async function esLintHandler(this: LintCommand, files: string[]) {
+export async function styleLintHandler(this: LintCommand, files: string[]) {
   if (!files.length) {
     return;
   }
 
   const { fix } = this.options;
-  const eslintBin = join(dirname(require.resolve('eslint/package.json')), 'bin/eslint');
-  const args = [eslintBin, '--no-eslintrc', '-c', eslintConfig];
+  const stylelintBin = join(dirname(require.resolve('stylelint/package.json')), 'bin/stylelint');
+  const args = [stylelintBin, '--config', styleConfig];
 
   if (fix) {
     args.push('--fix');

@@ -8,21 +8,14 @@ import { spawn, type SpawnOptions } from 'child_process';
  * @returns {Promise<number>} Error code
  */
 export function runCmd(cmd: string, args: string[], options: SpawnOptions = {}): Promise<number> {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     args = args || [];
 
     const runner = spawn(cmd, args, {
       stdio: 'inherit',
-      ...options
+      ...options,
     });
 
-    runner.on('close', code => {
-      if (code) {
-        reject(code);
-        return;
-      }
-
-      resolve(0);
-    });
+    runner.on('close', (code) => resolve(code || 0));
   });
 }
