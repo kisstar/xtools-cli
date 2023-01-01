@@ -1,5 +1,5 @@
 export default {
-  base: 'xtools-cli',
+  base: '/xtools-cli/',
 
   lang: 'zh-CN',
   title: 'CLI',

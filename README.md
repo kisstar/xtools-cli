@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://ant.design">
-    <img width="200" src="../xtools-cli/docs/public/images/logo.png">
+    <img width="200" src="https://github.com/kisstar/xtools-cli/blob/main/docs/public/images/logo.png?raw=true">
   </a>
 </p>
 

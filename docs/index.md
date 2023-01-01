@@ -7,7 +7,7 @@ hero:
   actions:
     - theme: brand
       text: Get Started
-      link: /index.html
+      link: https://kisstar.github.io/xtools-cli/
     - theme: alt
       text: View on GitHub
       link: https://github.com/kisstar/xtools-cli/
