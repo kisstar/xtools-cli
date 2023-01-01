@@ -1,5 +1,5 @@
 packages:
   - "core/*"
   - "commands/*"
-  - "plugins/*"
+  - "config/*"
   - "utils/*"
