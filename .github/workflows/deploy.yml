@@ -1,0 +1,65 @@
+name: deploy app
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - 'docs/**'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+
+      - name: Install pnpm
+        run: npm install --global pnpm
+
+      - name: Install packages with pnpm
+        run: pnpm install
+
+      - name: Builds the app for production
+        run: npm run docs:build
+
+      - name: Set git user information
+        run: |
+          git config user.name $USER_NAME
+          git config user.email $USER_EMAIL
+        env:
+          USER_NAME: kisstar
+          USER_EMAIL: dwh.chn@foxmail.com
+
+      - name: Deploy to GitHub using gh-pages
+        run: |
+          git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+          npx gh-pages -d docs/.vitepress/dist -b gh-pages
+          git remote remove origin
+        env:
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          GITHUB_REPOSITORY: xtools-cli
+
+      - name: Set ssh key
+        run: |
+          mkdir -p ~/.ssh/
+          echo "$GITEE_TOKEN" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan gitee.com >> ~/.ssh/known_hosts
+        env:
+          GITEE_TOKEN: ${{ secrets.GITEE_ACCESS_TOKEN }}
+
+      - name: Deploy to Gitee using gh-pages
+        run: |
+          git remote add origin git@gitee.com:dongwanhong/${GITEE_REPOSITORY}.git
+          npx gh-pages -d docs/.vitepress/dist -b master
+          git remote remove origin
+        env:
+          GITEE_REPOSITORY: xtools-cli
+
+      - name: Remove ssh key
+        run: rm -rf ~/.ssh
