@@ -1,4 +1,6 @@
 export default {
+  base: 'xtools-cli',
+
   lang: 'zh-CN',
   title: 'CLI',
   description: 'Multifunctional R & D tools.',
