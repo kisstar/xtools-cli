@@ -1,6 +1,7 @@
 # http://help.github.com/ignore-files/
 
 # IDEs and editors
+.DS_Store
 .idea
 .project
 .classpath
@@ -48,3 +49,6 @@ jspm_packages/
 
 # Output of 'npm pack'
 *.tgz
+
+# VitePress cache
+docs/.vitepress/cache
