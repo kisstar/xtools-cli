@@ -2,7 +2,7 @@ name: deploy app
 
 on:
   push:
-    branches: [master]
+    branches: [main]
     paths:
       - 'docs/**'
 
