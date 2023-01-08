@@ -12,6 +12,7 @@ export const COMMANDS: CommandInfo[] = [
     command: 'commit',
     description: 'interactive submission and specification verification',
     action: new CommitCommand().exec,
+    options: [['--lint', 'lint commit messages']],
   },
   {
     command: 'lint',
