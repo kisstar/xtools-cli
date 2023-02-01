@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://ant.design">
+  <a href="https://kisstar.github.io/xtools-cli/">
     <img width="200" src="https://github.com/kisstar/xtools-cli/blob/main/docs/public/images/logo.png?raw=true">
   </a>
 </p>
